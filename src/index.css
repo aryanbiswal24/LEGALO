@@ -1,0 +1,986 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  /* Main color palette */
+  --navy: #0c1a33;
+  --navy-light: #1c3760;
+  --gold: #c9a463;
+  --gold-light: #f3e9d4;
+  --white: #ffffff;
+  --cream: #f6f1e7;
+  --green: #1e8a5f;
+  --green-light: #e6f5ee;
+  --text-dark: #2b3142;
+  --text-muted: #6b7280;
+  --border-color: #e6dfd0;
+
+  /* Spacing / shape */
+  --radius: 14px;
+  --radius-sm: 8px;
+  --shadow: 0 4px 16px rgba(12, 26, 51, 0.08);
+  --shadow-hover: 0 8px 24px rgba(12, 26, 51, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Arial, sans-serif;
+  background-color: var(--navy);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Playfair Display", Georgia, serif;
+  color: var(--navy);
+  margin: 0;
+}
+
+/* ============================================
+   Reusable layout helpers
+============================================ */
+
+.container {
+  color: var(--gold);
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.section {
+  padding: 70px 0;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.section-subheading {
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+/* ============================================
+   Buttons
+============================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background-color: var(--gold);
+  color: var(--navy);
+  box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+  background-color: var(--navy);
+  color: var(--white);
+  box-shadow: var(--shadow-hover);
+}
+
+.btn-outline {
+  background-color: var(--white);
+  color: var(--navy);
+  border: 1.5px solid var(--navy);
+}
+
+.btn-outline:hover {
+  background-color: var(--gold-light);
+}
+
+.btn-gold-solid {
+  background-color: var(--gold);
+  color: var(--navy);
+}
+
+.btn-gold-solid:hover {
+  background-color: var(--navy);
+  color: var(--white);
+}
+
+/* ============================================
+   Cards (used across the site)
+============================================ */
+
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 26px;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ============================================
+   Grid helpers
+============================================ */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ============================================
+   Navbar
+============================================ */
+
+.navbar {
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.navbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.navbar-links {
+  display: flex;
+  gap: 32px;
+}
+
+.navbar-links a {
+  color: var(--text-dark);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.15s ease;
+}
+
+.navbar-links a:hover {
+  color: var(--gold);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lang-select {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: none;
+  border: none;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+}
+
+.hamburger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--navy);
+}
+
+.mobile-menu {
+  display: none;
+}
+
+/* ============================================
+   Footer
+============================================ */
+
+.footer {
+  background-color: var(--navy);
+  color: var(--white);
+  padding: 50px 0 24px 0;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.footer-tagline {
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 320px;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+.footer-heading {
+  color: var(--white);
+  font-size: 0.95rem;
+  margin-bottom: 14px;
+  font-weight: 600;
+}
+
+.footer-disclaimer {
+  margin-top: 24px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+}
+
+/* ============================================
+   Hero Section
+============================================ */
+
+.hero {
+  background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy) 100%);
+  padding: 80px 0;
+}
+
+.hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.hero-text {
+  flex: 1.1;
+}
+
+.hero-text h1 {
+  color: var(--gold);
+  font-size: 2.6rem;
+  line-height: 1.2;
+  margin-bottom: 18px;
+}
+
+.hero-text p {
+  color: var(--gold-light);
+  font-size: 1.05rem;
+  max-width: 480px;
+  margin-bottom: 28px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* CSS-only illustration: Citizen -> AI -> Info -> Action */
+.hero-illustration {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.flow-card {
+  width: 220px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.flow-card-navy {
+  background-color: var(--navy);
+  color: var(--white);
+  border: none;
+}
+
+.flow-card-gold {
+  background-color: var(--gold);
+  color: var(--white);
+  border: none;
+}
+
+.flow-arrow {
+  margin: 2px 0;
+}
+
+/* ============================================
+   Trust Section
+============================================ */
+
+.trust-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.trust-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* ============================================
+   Problem Section
+============================================ */
+
+.problem-card {
+  text-align: center;
+}
+
+.problem-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gold-light);
+  border-radius: 50%;
+  margin: 0 auto 16px auto;
+}
+
+.problem-card p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* ============================================
+   Feature Cards (Home)
+============================================ */
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.feature-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gold-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 16px;
+}
+
+.feature-card p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  flex-grow: 1;
+}
+
+.feature-btn {
+  margin-top: 16px;
+  align-self: flex-start;
+}
+
+/* ============================================
+   Dashboard Section
+============================================ */
+
+.dashboard-card {
+  background-color: var(--cream);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 36px;
+}
+
+.dashboard-subheading {
+  font-weight: 600;
+  color: var(--navy);
+  margin: 24px 0 14px 0;
+}
+
+.dashboard-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.dashboard-activity {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ============================================
+   Shared inner-page styles
+============================================ */
+
+.narrow-container {
+  max-width: 750px;
+}
+
+.page-heading {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.page-subheading {
+  color: var(--gold);
+  margin-bottom: 30px;
+}
+
+/* ============================================
+   Rights Navigator - Input Card
+============================================ */
+
+.input-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.problem-textarea {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  resize: vertical;
+}
+
+.problem-textarea:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.input-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.language-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.language-field select {
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  font-family: inherit;
+}
+
+/* ============================================
+   ChatBox component
+============================================ */
+
+.response-area {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.chatbox {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.chatbox-avatar {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 50%;
+  background-color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatbox-bubble {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  box-shadow: var(--shadow);
+  flex: 1;
+}
+
+.chat-intro {
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 10px;
+}
+
+.chat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  margin: 14px 0 6px 0;
+}
+
+.chat-category {
+  display: inline-block;
+  background-color: var(--gold-light);
+  color: var(--gold);
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.88rem;
+}
+
+.chat-list {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.chat-list li {
+  margin-bottom: 4px;
+}
+
+.chat-doc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chat-doc-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+}
+
+.chat-question {
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.answer-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.answer-btn-active {
+  background-color: var(--gold);
+  color: var(--white);
+  border-color: var(--gold);
+}
+
+/* ============================================
+   Action Plan Timeline
+============================================ */
+
+.action-plan {
+  margin-top: 60px;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.timeline-number {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background-color: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.timeline-title {
+  margin: 10px 0;
+  font-weight: 600;
+  max-width: 260px;
+}
+
+.timeline-arrow {
+  margin: 4px 0 10px 0;
+}
+
+/* ============================================
+   Source Cards
+============================================ */
+
+.source-card {
+  text-align: left;
+}
+
+.source-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gold-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+}
+
+.source-card p {
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+}
+
+.source-btn {
+  font-size: 0.85rem;
+  padding: 8px 16px;
+}
+
+/* ============================================
+   Shared form fields (RTI + Scheme Finder)
+============================================ */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.form-field input,
+.form-field select {
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 0.95rem;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.step-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================
+   Step indicator (RTI Assistant)
+============================================ */
+
+.step-indicator {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.step-dot {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: 1.5px solid var(--border-color);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.step-dot-active {
+  background-color: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+
+/* ============================================
+   RTI Draft
+============================================ */
+
+.draft-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.draft-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.draft-btn {
+  font-size: 0.85rem;
+  padding: 8px 14px;
+}
+
+.draft-preview {
+  background-color: var(--cream);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  font-family: "Courier New", monospace;
+  font-size: 0.88rem;
+  white-space: pre-wrap;
+  line-height: 1.7;
+}
+
+.draft-textarea {
+  width: 100%;
+  background-color: var(--cream);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  font-family: "Courier New", monospace;
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+/* ============================================
+   Scheme Finder results
+============================================ */
+
+.scheme-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.scheme-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--gold-light);
+  border-radius: var(--radius-sm);
+  margin-bottom: 12px;
+}
+
+.scheme-card p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 2px 0 0 0;
+}
+
+.scheme-btn {
+  margin-top: 16px;
+  width: 100%;
+}
+
+/* ============================================
+   Responsive rules
+============================================ */
+
+@media (max-width: 900px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 45px 0;
+  }
+
+  .section-heading {
+    font-size: 1.6rem;
+  }
+
+  .navbar-links,
+  .navbar-right {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 20px 24px 28px 24px;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .footer-top {
+    flex-direction: column;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    max-width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scheme-list {
+    grid-template-columns: 1fr;
+  }
+
+  .draft-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
