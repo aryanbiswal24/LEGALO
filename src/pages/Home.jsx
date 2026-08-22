@@ -101,7 +101,7 @@ function Home() {
           <div className="hero-illustration">
             <div className="legal-image-card">
               <img
-                src="https://freeimage.host/i/CZttrzX"
+                src="https://i.ibb.co/mC1jTXPB/justice-lady.png"
                 alt="Lady Justice and legal symbols"
               />
             </div>
