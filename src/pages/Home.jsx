@@ -107,29 +107,13 @@ function Home() {
             </div>
           </div>
 
-          {/* Simple CSS-based illustration instead of an image */}
+          {/* Legal illustration */}
           <div className="hero-illustration">
-            <div className="flow-card">
-              <User size={20} color="var(--gold)" />
-              <span>Citizen</span>
-            </div>
-            <ArrowDown size={18} color="var(--text-muted)" className="flow-arrow" />
-
-            <div className="flow-card flow-card-navy">
-              <Bot size={20} color="var(--white)" />
-              <span>Legalo AI</span>
-            </div>
-            <ArrowDown size={18} color="var(--text-muted)" className="flow-arrow" />
-
-            <div className="flow-card">
-              <BookOpenCheck size={20} color="var(--green)" />
-              <span>Official Information</span>
-            </div>
-            <ArrowDown size={18} color="var(--text-muted)" className="flow-arrow" />
-
-            <div className="flow-card flow-card-gold">
-              <ArrowRight size={20} color="var(--white)" />
-              <span>Action</span>
+            <div className="legal-image-card">
+              <img
+                src="src\components\justice-lady.png"
+                alt="Lady Justice and legal symbols"
+              />
             </div>
           </div>
         </div>

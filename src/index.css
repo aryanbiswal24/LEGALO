@@ -351,13 +351,34 @@ h4 {
   flex-wrap: wrap;
 }
 
-/* CSS-only illustration: Citizen -> AI -> Info -> Action */
+/* =========================
+   LEGAL HERO IMAGE
+========================= */
+
 .hero-illustration {
-  flex: 1;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 6px;
+  width: 100%;
+}
+
+.legal-image-card {
+  width: 430px;
+  max-width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.legal-image-card img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
 }
 
 .flow-card {
