@@ -14,6 +14,7 @@ import {
   ArrowDown,
 } from "lucide-react";
 import FeatureCard from "../components/FeatureCard.jsx";
+import justiceLadyImage from "../components/justice-lady.png";
 
 // Simple arrays of data used to build the sections below with .map().
 // Keeping content as data makes the JSX underneath much shorter.
@@ -101,7 +102,7 @@ function Home() {
           <div className="hero-illustration">
             <div className="legal-image-card">
               <img
-                src="https://i.ibb.co/mC1jTXPB/justice-lady.png"
+                src={justiceLadyImage}
                 alt="Lady Justice and legal symbols"
               />
             </div>
