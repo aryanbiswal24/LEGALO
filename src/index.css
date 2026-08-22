@@ -411,26 +411,6 @@ h4 {
   margin: 2px 0;
 }
 
-/* ============================================
-   Trust Section
-============================================ */
-
-.trust-section {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-
-.trust-card {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: var(--white);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  padding: 16px 18px;
-  font-weight: 600;
-  font-size: 0.9rem;
-}
 
 /* ============================================
    Problem Section
@@ -949,6 +929,15 @@ h4 {
   .grid-3,
   .grid-2 {
     grid-template-columns: 1fr;
+  }
+
+  .legal-image-card {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .hero-illustration {
+    margin-top: 40px;
   }
 
   .section {

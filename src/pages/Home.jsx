@@ -1,9 +1,5 @@
 import { Link } from "react-router-dom";
 import {
-  BadgeCheck,
-  Languages,
-  MessageSquareText,
-  ListChecks,
   FileWarning,
   FolderKanban,
   HelpCircle,
@@ -22,12 +18,6 @@ import FeatureCard from "../components/FeatureCard.jsx";
 // Simple arrays of data used to build the sections below with .map().
 // Keeping content as data makes the JSX underneath much shorter.
 
-const trustPoints = [
-  { icon: <BadgeCheck size={20} color="var(--green)" />, text: "Official Sources" },
-  { icon: <MessageSquareText size={20} color="var(--green)" />, text: "Simple Language" },
-  { icon: <Languages size={20} color="var(--green)" />, text: "Multiple Languages" },
-  { icon: <ListChecks size={20} color="var(--green)" />, text: "Clear Next Steps" },
-];
 
 const problems = [
   {
@@ -115,20 +105,6 @@ function Home() {
                 alt="Lady Justice and legal symbols"
               />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===================== TRUST SECTION ===================== */}
-      <section className="section trust-section">
-        <div className="container">
-          <div className="grid-4">
-            {trustPoints.map((point) => (
-              <div className="trust-card" key={point.text}>
-                {point.icon}
-                <span>{point.text}</span>
-              </div>
-            ))}
           </div>
         </div>
       </section>
